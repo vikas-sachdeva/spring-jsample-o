@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>spring.jsample</groupId>
-	<artifactId>spring.jsample</artifactId>
+	<artifactId>spring-jsample</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,4 +17,7 @@
 	<dependencies>
 
 	</dependencies>
+	<modules>
+		<module>boot</module>
+	</modules>
 </project>
