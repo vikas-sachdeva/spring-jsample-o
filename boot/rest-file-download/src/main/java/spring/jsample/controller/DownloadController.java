@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import spring.jsample.service.DownloadService;
+import spring.jsample.util.AppConstants;
 
 @RestController
 public class DownloadController {
@@ -22,7 +23,7 @@ public class DownloadController {
 	@Autowired
 	private DownloadService service;
 
-	@GetMapping("/export")
+	@GetMapping(AppConstants.URI.EXPORT)
 	public ResponseEntity<Resource> exporFile(HttpServletRequest request) {
 
 		Resource resource;

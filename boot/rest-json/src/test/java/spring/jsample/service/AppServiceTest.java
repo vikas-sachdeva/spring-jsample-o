@@ -6,24 +6,25 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 
 import spring.jsample.dao.AppDao;
 import spring.jsample.model.Application;
-import spring.jsample.service.AppService;
 
 @SpringJUnitWebConfig
 @AutoConfigureMockMvc
 @SpringBootTest
 public class AppServiceTest {
 
-	@Mock
+	@MockBean
 	private AppDao dao;
 
 	@InjectMocks
@@ -40,8 +41,14 @@ public class AppServiceTest {
 		applicationList = new ArrayList<>(Arrays.asList(app1, app2, app3));
 	}
 
+	@BeforeEach
+	private void initTest() {
+		MockitoAnnotations.initMocks(this);
+	}
+
 	@Test
 	public void getAppsTest1() {
+
 		Mockito.when(dao.getApps()).thenReturn(applicationList);
 
 		List<Application> appList = service.getApps();
