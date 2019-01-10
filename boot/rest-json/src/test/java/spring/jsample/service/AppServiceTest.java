@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,7 @@ public class AppServiceTest {
 		Mockito.when(dao.getApps()).thenReturn(applicationList);
 
 		List<Application> appList = service.getApps();
-		Assert.assertArrayEquals(applicationList.toArray(), appList.toArray());
+		Assertions.assertArrayEquals(applicationList.toArray(), appList.toArray());
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class AppServiceTest {
 		Mockito.when(dao.getAppById(4)).thenReturn(app4);
 
 		Application acutalApp = service.addApp(app4);
-		Assert.assertEquals(app4, acutalApp);
+		Assertions.assertEquals(app4, acutalApp);
 	}
 
 	@Test
@@ -81,7 +81,7 @@ public class AppServiceTest {
 		Mockito.when(dao.getAppById(4)).thenReturn(app4);
 
 		Application acutalApp = service.updateApp(app4);
-		Assert.assertEquals(app4, acutalApp);
+		Assertions.assertEquals(app4, acutalApp);
 
 	}
 

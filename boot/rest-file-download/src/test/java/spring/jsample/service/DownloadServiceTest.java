@@ -1,6 +1,6 @@
 package spring.jsample.service;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -33,7 +33,7 @@ public class DownloadServiceTest {
 
 		Resource notSameResource = new FileUrlResource(TEST_FILE);
 
-		Assert.assertNotEquals(service.getFileAsResource(), notSameResource);
+		Assertions.assertNotEquals(service.getFileAsResource(), notSameResource);
 	}
 	
 	@Test
@@ -41,6 +41,6 @@ public class DownloadServiceTest {
 
 		Resource expectedResource = new FileUrlResource(AppConstants.FILE_PATH);
 
-		Assert.assertEquals(service.getFileAsResource(), expectedResource);
+		Assertions.assertEquals(service.getFileAsResource(), expectedResource);
 	}
 }

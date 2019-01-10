@@ -2,7 +2,6 @@ package spring.jsample.dao;
 
 import java.util.NoSuchElementException;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -32,7 +31,7 @@ public class AppDaoTest {
 
 		int id = dao.addApp(app4);
 
-		Assert.assertEquals(maxId + 1, id);
+		Assertions.assertEquals(maxId + 1, id);
 
 	}
 
@@ -56,7 +55,7 @@ public class AppDaoTest {
 		Application app1 = new Application(id, "Application-14", "running");
 
 		dao.updateApp(app1);
-		Assert.assertEquals(dao.getAppById(id).getName(), app1.getName());
+		Assertions.assertEquals(dao.getAppById(id).getName(), app1.getName());
 
 	}
 }
