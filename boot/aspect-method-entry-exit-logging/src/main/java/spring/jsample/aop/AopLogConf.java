@@ -10,10 +10,17 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 
 @Aspect
 @Configuration
+@ConditionalOnProperty(name = "aop.logging")
+/**
+ * If the value of the key "aop.logging" is true in application.properties file,
+ * then only this configuration will be enabled.
+ *
+ */
 public class AopLogConf {
 
 	private static final String ADVICE_EXP = "execution(* spring.jsample..*.*(..))";
