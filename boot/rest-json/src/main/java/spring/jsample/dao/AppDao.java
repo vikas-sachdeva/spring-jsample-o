@@ -2,9 +2,7 @@ package spring.jsample.dao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -18,7 +16,7 @@ public class AppDao {
 	private List<Application> applicationList;
 
 	@PostConstruct
-	private void init() {
+	public void init() {
 		Application app1 = new Application(1, "Application-1", "running");
 		Application app2 = new Application(2, "Application-2", "stopped");
 		Application app3 = new Application(3, "Application-3", "running");
@@ -32,7 +30,7 @@ public class AppDao {
 	}
 
 	public Application getAppById(int id) {
-		return applicationList.stream().filter(x -> x.getId() == id).findFirst().get();
+		return applicationList.stream().filter(x -> x.getId() == id).findFirst().orElseThrow();
 	}
 
 	public void deleteApp(int id) {
@@ -40,16 +38,12 @@ public class AppDao {
 	}
 
 	public int addApp(Application app) {
-		Optional<Application> maxId = applicationList.stream().max(new Comparator<Application>() {
-			@Override
-			public int compare(Application o1, Application o2) {
-				if (o1.getId() > o2.getId())
-					return 1;
-				else
-					return -1;
-			}
-		});
-		app.setId(maxId.get().getId() + 1);
+
+		int maxId = applicationList.stream().max((o1, o2) -> {
+			return o1.getId() > o2.getId() ? 1 : -1;
+		}).get().getId();
+
+		app.setId(maxId + 1);
 		applicationList.add(app);
 		return app.getId();
 	}
