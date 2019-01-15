@@ -61,5 +61,6 @@
 		<module>rest-file-download</module>
 		<module>aspect-method-entry-exit-logging</module>
     <module>rest-controller-advice-exception-handling</module>
+    <module>mybatis-postgres</module>
   </modules>
 </project>
