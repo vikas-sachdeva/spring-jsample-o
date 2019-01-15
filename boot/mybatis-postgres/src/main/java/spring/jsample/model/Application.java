@@ -8,6 +8,13 @@ public class Application {
 
 	private Boolean running;
 
+	public Application(int id, String name, Boolean running) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.running = running;
+	}
+
 	public int getId() {
 		return id;
 	}
