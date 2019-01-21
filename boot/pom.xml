@@ -62,5 +62,6 @@
 		<module>aspect-method-entry-exit-logging</module>
     <module>rest-controller-advice-exception-handling</module>
     <module>mybatis-postgres</module>
+    <module>lombok-rest-mybatis</module>
   </modules>
 </project>
