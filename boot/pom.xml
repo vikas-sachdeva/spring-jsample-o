@@ -63,5 +63,6 @@
     <module>rest-controller-advice-exception-handling</module>
     <module>mybatis-postgres</module>
     <module>lombok-rest-mybatis</module>
+    <module>cors-support</module>
   </modules>
 </project>
