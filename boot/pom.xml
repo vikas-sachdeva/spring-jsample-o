@@ -64,5 +64,6 @@
     <module>mybatis-postgres</module>
     <module>lombok-rest-mybatis</module>
     <module>cors-support</module>
+    <module>actuator-rest</module>
   </modules>
 </project>
