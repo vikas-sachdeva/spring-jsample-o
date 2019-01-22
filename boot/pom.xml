@@ -65,5 +65,7 @@
     <module>lombok-rest-mybatis</module>
     <module>cors-support</module>
     <module>actuator-rest</module>
+    <module>log4j2-integration</module>
+    <module>basic-console-app</module>
   </modules>
 </project>
