@@ -67,5 +67,6 @@
     <module>actuator-rest</module>
     <module>log4j2-integration</module>
     <module>basic-console-app</module>
+    <module>unique-id-per-request</module>
   </modules>
 </project>
