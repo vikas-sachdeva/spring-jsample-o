@@ -68,5 +68,6 @@
     <module>log4j2-integration</module>
     <module>basic-console-app</module>
     <module>unique-id-per-request</module>
+    <module>security</module>
   </modules>
 </project>
