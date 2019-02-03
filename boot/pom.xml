@@ -69,5 +69,6 @@
     <module>basic-console-app</module>
     <module>unique-id-per-request</module>
     <module>security</module>
+    <module>swagger2-rest-json</module>
   </modules>
 </project>
