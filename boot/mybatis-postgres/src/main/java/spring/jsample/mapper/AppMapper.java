@@ -26,9 +26,9 @@ public interface AppMapper {
 
 	@Insert("INSERT INTO application (name, running) VALUES (#{name},#{running})")
 	/**
-	 * Below is required for returning the generated value of id column. Statement
-	 * value is specific for each database. Below one will work on postgresSql
-	 * database.
+	 * Below is required for updating the generated value of id column in input model
+	 * class. Statement is specific for each database. Below one will work on
+	 * postgresSql database.
 	 */
 	@SelectKey(statement = "SELECT currval((pg_get_serial_sequence('application', 'id')))", keyProperty = "id", before = false, resultType = int.class)
 	int insertApp(Application application);
