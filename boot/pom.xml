@@ -71,5 +71,6 @@
     <module>security</module>
     <module>swagger2-rest-json</module>
     <module>rest-file-upload</module>
+    <module>hibernate-postgres</module>
   </modules>
 </project>
