@@ -72,5 +72,6 @@
     <module>swagger2-rest-json</module>
     <module>rest-file-upload</module>
     <module>hibernate-postgres</module>
+    <module>spring-data-mongodb</module>
   </modules>
 </project>
