@@ -33,11 +33,24 @@ public class AppService {
 		return apps;
 	}
 
+	public Page<Application> getAppsByNamesPageWise(List<String> list, int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Page<Application> apps = dao.findByNameIn(list, pageable);
+		return apps;
+	}
+
+	public Page<Application> getRunningAppsByNamesPageWise(List<String> list, int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Page<Application> apps = dao.findByNameInAndRunning(list, true, pageable);
+		return apps;
+	}
+
 	public Page<Application> getRunningAppsPageWise(int pageNumber, int pageSize) {
 		Pageable pageable = PageRequest.of(pageNumber, pageSize);
 		Application application = new Application();
 		application.setRunning(true);
 		Example<Application> example = Example.of(application);
+
 		Page<Application> apps = dao.findAll(example, pageable);
 		return apps;
 	}

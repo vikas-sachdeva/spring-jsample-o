@@ -80,6 +80,24 @@ public class AppServiceTest {
 	}
 
 	@Test
+	public void getAppsByNamesPageWiseTest1() {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		List<String> appNames = Arrays.asList("app-1", "app-2");
+
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+		Page<Application> emptyPage = Page.empty();
+
+		Mockito.when(dao.findByNameIn(appNames, pageable)).thenReturn(emptyPage);
+
+		Page<Application> page = service.getAppsByNamesPageWise(appNames, pageNumber, pageSize);
+		Assertions.assertEquals(emptyPage, page);
+	}
+
+	@Test
 	public void getRunningAppsPageWiseTest1() {
 
 		int pageNumber = 0;
@@ -90,6 +108,24 @@ public class AppServiceTest {
 		Mockito.when(dao.findAll(Mockito.any(Example.class), Mockito.any(Pageable.class))).thenReturn(emptyPage);
 
 		Page<Application> page = service.getRunningAppsPageWise(pageNumber, pageSize);
+		Assertions.assertEquals(emptyPage, page);
+	}
+	
+	@Test
+	public void getRuningAppsByNamesPageWiseTest1() {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		List<String> appNames = Arrays.asList("app-1", "app-2");
+
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+		Page<Application> emptyPage = Page.empty();
+
+		Mockito.when(dao.findByNameInAndRunning(appNames, true, pageable)).thenReturn(emptyPage);
+
+		Page<Application> page = service.getRunningAppsByNamesPageWise(appNames, pageNumber, pageSize);
 		Assertions.assertEquals(emptyPage, page);
 	}
 

@@ -76,8 +76,32 @@ public class AppControllerTest {
 		String expectedResponse = mapper.writeValueAsString(page);
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_APPS_PAGE_WISE)
-				.param(AppConstants.REQ_PARAM.pageNumber, String.valueOf(pageNumber))
-				.param(AppConstants.REQ_PARAM.pageSize, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
+				.param(AppConstants.REQ_PARAM.PAGE_NUMBER, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.PAGE_SIZE, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
+
+		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
+	}
+
+	@Test
+	public void getAppsByNamesPageWiseTest1() throws Exception {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Page<Application> page = Page.empty();
+
+		List<String> appNames = Arrays.asList("app-1", "app-2");
+
+		Mockito.when(service.getAppsByNamesPageWise(appNames, pageNumber, pageSize)).thenReturn(page);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String expectedResponse = mapper.writeValueAsString(page);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_APPS_HAVING_NAMES_PAGE_WISE)
+				.param(AppConstants.REQ_PARAM.PAGE_NUMBER, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.PAGE_SIZE, String.valueOf(pageSize))
+				.param(AppConstants.REQ_PARAM.NAMES_LIST, "app-1", "app-2").accept(MediaType.APPLICATION_JSON);
 
 		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
@@ -97,8 +121,33 @@ public class AppControllerTest {
 		String expectedResponse = mapper.writeValueAsString(page);
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_RUNNING_APPS_PAGE_WISE)
-				.param(AppConstants.REQ_PARAM.pageNumber, String.valueOf(pageNumber))
-				.param(AppConstants.REQ_PARAM.pageSize, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
+				.param(AppConstants.REQ_PARAM.PAGE_NUMBER, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.PAGE_SIZE, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
+
+		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
+	}
+	
+	
+	@Test
+	public void getRunningAppsByNamesPageWiseTest1() throws Exception {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Page<Application> page = Page.empty();
+
+		List<String> appNames = Arrays.asList("app-1", "app-2");
+
+		Mockito.when(service.getRunningAppsByNamesPageWise(appNames, pageNumber, pageSize)).thenReturn(page);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String expectedResponse = mapper.writeValueAsString(page);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_RUNNING_APPS_HAVING_NAMES_PAGE_WISE)
+				.param(AppConstants.REQ_PARAM.PAGE_NUMBER, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.PAGE_SIZE, String.valueOf(pageSize))
+				.param(AppConstants.REQ_PARAM.NAMES_LIST, "app-1", "app-2").accept(MediaType.APPLICATION_JSON);
 
 		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));

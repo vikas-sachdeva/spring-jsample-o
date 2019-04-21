@@ -8,7 +8,11 @@ public class AppConstants {
 
 		public static final String GET_APPS_PAGE_WISE = "/getAppsPageWise";
 
+		public static final String GET_APPS_HAVING_NAMES_PAGE_WISE = "/getAppsHavingNamesPageWise";
+
 		public static final String GET_RUNNING_APPS_PAGE_WISE = "/getRunningAppsPageWise";
+
+		public static final String GET_RUNNING_APPS_HAVING_NAMES_PAGE_WISE = "/getRunningAppsHavingNamesPageWise";
 
 		public static final String ADD_APP = "/addApp";
 
@@ -20,9 +24,11 @@ public class AppConstants {
 
 	public static final class REQ_PARAM {
 
-		public static final String pageNumber = "pageNumber";
+		public static final String PAGE_NUMBER = "pageNumber";
 
-		public static final String pageSize = "pageSize";
+		public static final String PAGE_SIZE = "pageSize";
+
+		public static final String NAMES_LIST = "names";
 
 	}
 }

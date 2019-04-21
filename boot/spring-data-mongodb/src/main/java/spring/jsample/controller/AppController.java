@@ -35,15 +35,37 @@ public class AppController {
 
 	@GetMapping(value = { AppConstants.URI.GET_APPS_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<?> getAppsPageWise(@RequestParam(AppConstants.REQ_PARAM.pageNumber) int pageNumber,
-			@RequestParam(AppConstants.REQ_PARAM.pageSize) int pageSize) {
+	public ResponseEntity<?> getAppsPageWise(@RequestParam(AppConstants.REQ_PARAM.PAGE_NUMBER) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_SIZE) int pageSize) {
 		return new ResponseEntity<Page<Application>>(service.getAppsPageWise(pageNumber, pageSize), HttpStatus.OK);
+	}
+
+	@GetMapping(value = {
+			AppConstants.URI.GET_APPS_HAVING_NAMES_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<?> getAppsHavingNamesPageWise(
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_NUMBER) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_SIZE) int pageSize,
+			@RequestParam(AppConstants.REQ_PARAM.NAMES_LIST) List<String> names) {
+		return new ResponseEntity<Page<Application>>(service.getAppsByNamesPageWise(names, pageNumber, pageSize),
+				HttpStatus.OK);
+	}
+
+	@GetMapping(value = {
+			AppConstants.URI.GET_RUNNING_APPS_HAVING_NAMES_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<?> getRunningAppsHavingNamesPageWise(
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_NUMBER) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_SIZE) int pageSize,
+			@RequestParam(AppConstants.REQ_PARAM.NAMES_LIST) List<String> names) {
+		return new ResponseEntity<Page<Application>>(service.getRunningAppsByNamesPageWise(names, pageNumber, pageSize),
+				HttpStatus.OK);
 	}
 
 	@GetMapping(value = { AppConstants.URI.GET_RUNNING_APPS_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<?> getRunningAppPageWise(@RequestParam(AppConstants.REQ_PARAM.pageNumber) int pageNumber,
-			@RequestParam(AppConstants.REQ_PARAM.pageSize) int pageSize) {
+	public ResponseEntity<?> getRunningAppsPageWise(@RequestParam(AppConstants.REQ_PARAM.PAGE_NUMBER) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.PAGE_SIZE) int pageSize) {
 		return new ResponseEntity<Page<Application>>(service.getRunningAppsPageWise(pageNumber, pageSize),
 				HttpStatus.OK);
 	}
