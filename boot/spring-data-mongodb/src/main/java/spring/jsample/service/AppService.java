@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +25,21 @@ public class AppService {
 
 	public List<Application> getApps() {
 		return dao.findAll();
+	}
+
+	public Page<Application> getAppsPageWise(int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Page<Application> apps = dao.findAll(pageable);
+		return apps;
+	}
+
+	public Page<Application> getRunningAppsPageWise(int pageNumber, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		Application application = new Application();
+		application.setRunning(true);
+		Example<Application> example = Example.of(application);
+		Page<Application> apps = dao.findAll(example, pageable);
+		return apps;
 	}
 
 	public Application addApp(Application app) {

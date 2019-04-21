@@ -16,6 +16,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 
 import spring.jsample.exceptions.ApplicationNotFoundException;
@@ -60,6 +64,36 @@ public class AppServiceTest {
 	}
 
 	@Test
+	public void getAppsPageWiseTest1() {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+		Page<Application> emptyPage = Page.empty();
+
+		Mockito.when(dao.findAll(pageable)).thenReturn(emptyPage);
+
+		Page<Application> page = service.getAppsPageWise(pageNumber, pageSize);
+		Assertions.assertEquals(emptyPage, page);
+	}
+
+	@Test
+	public void getRunningAppsPageWiseTest1() {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Page<Application> emptyPage = Page.empty();
+
+		Mockito.when(dao.findAll(Mockito.any(Example.class), Mockito.any(Pageable.class))).thenReturn(emptyPage);
+
+		Page<Application> page = service.getRunningAppsPageWise(pageNumber, pageSize);
+		Assertions.assertEquals(emptyPage, page);
+	}
+
+	@Test
 	public void addAppTest1() {
 		Application app4 = new Application("4", "Application-4", true);
 		Mockito.when(dao.save(app4)).thenReturn(app4);
@@ -70,9 +104,22 @@ public class AppServiceTest {
 
 	@Test
 	public void deleteAppTest1() {
+
+		Application app4 = new Application("4", "Application-4", true);
+		Mockito.when(dao.findById("4")).thenReturn(Optional.of(app4));
+
 		Mockito.doNothing().when(dao).deleteById("4");
 
 		service.deleteApp("4");
+
+	}
+
+	@Test
+	public void deleteAppTest2() {
+
+		Mockito.when(dao.findById("4")).thenReturn(Optional.empty());
+
+		Assertions.assertThrows(ApplicationNotFoundException.class, () -> service.deleteApp("4"));
 
 	}
 

@@ -3,6 +3,7 @@ package spring.jsample.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +33,21 @@ public class AppController {
 		return new ResponseEntity<List<Application>>(service.getApps(), HttpStatus.OK);
 	}
 
+	@GetMapping(value = { AppConstants.URI.GET_APPS_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<?> getAppsPageWise(@RequestParam(AppConstants.REQ_PARAM.pageNumber) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.pageSize) int pageSize) {
+		return new ResponseEntity<Page<Application>>(service.getAppsPageWise(pageNumber, pageSize), HttpStatus.OK);
+	}
+
+	@GetMapping(value = { AppConstants.URI.GET_RUNNING_APPS_PAGE_WISE }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<?> getRunningAppPageWise(@RequestParam(AppConstants.REQ_PARAM.pageNumber) int pageNumber,
+			@RequestParam(AppConstants.REQ_PARAM.pageSize) int pageSize) {
+		return new ResponseEntity<Page<Application>>(service.getRunningAppsPageWise(pageNumber, pageSize),
+				HttpStatus.OK);
+	}
+
 	@PostMapping(value = { AppConstants.URI.ADD_APP }, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<?> addApp(@RequestBody Application app) {
@@ -40,7 +57,7 @@ public class AppController {
 	@PutMapping(value = { AppConstants.URI.UPDATE_APP }, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<?> updateApp(@RequestBody Application app, @PathVariable String id) {
-		
+
 		return new ResponseEntity<Application>(service.updateApp(app, id), HttpStatus.OK);
 	}
 

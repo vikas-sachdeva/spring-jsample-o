@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
@@ -56,6 +57,48 @@ public class AppControllerTest {
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_APPS)
 				.accept(MediaType.APPLICATION_JSON);
+
+		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
+	}
+
+	@Test
+	public void getAppsPageWiseTest1() throws Exception {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Page<Application> page = Page.empty();
+
+		Mockito.when(service.getAppsPageWise(pageNumber, pageSize)).thenReturn(page);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String expectedResponse = mapper.writeValueAsString(page);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_APPS_PAGE_WISE)
+				.param(AppConstants.REQ_PARAM.pageNumber, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.pageSize, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
+
+		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
+	}
+
+	@Test
+	public void getRunningAppsPageWiseTest1() throws Exception {
+
+		int pageNumber = 0;
+		int pageSize = 10;
+
+		Page<Application> page = Page.empty();
+
+		Mockito.when(service.getRunningAppsPageWise(pageNumber, pageSize)).thenReturn(page);
+
+		ObjectMapper mapper = new ObjectMapper();
+		String expectedResponse = mapper.writeValueAsString(page);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(AppConstants.URI.GET_RUNNING_APPS_PAGE_WISE)
+				.param(AppConstants.REQ_PARAM.pageNumber, String.valueOf(pageNumber))
+				.param(AppConstants.REQ_PARAM.pageSize, String.valueOf(pageSize)).accept(MediaType.APPLICATION_JSON);
 
 		mockMvc.perform(requestBuilder).andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.content().json(expectedResponse, true));
