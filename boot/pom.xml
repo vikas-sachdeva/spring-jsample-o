@@ -73,5 +73,7 @@
     <module>rest-file-upload</module>
     <module>hibernate-postgres</module>
     <module>spring-data-mongodb</module>
+    <module>qualifier-annotation</module>
+    <module>command-line-runner</module>
   </modules>
 </project>
