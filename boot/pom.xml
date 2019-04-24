@@ -75,5 +75,6 @@
     <module>spring-data-mongodb</module>
     <module>qualifier-annotation</module>
     <module>command-line-runner</module>
+    <module>lazy-annotation</module>
   </modules>
 </project>
