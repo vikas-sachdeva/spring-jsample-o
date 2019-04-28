@@ -1,4 +1,4 @@
-package spring.jsample;
+package spring.jsample.bean;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

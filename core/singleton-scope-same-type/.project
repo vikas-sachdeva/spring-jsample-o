@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>singleton-scope-bean-different-id-xml-config</name>
+	<name>singleton-scope-bean-different-id-class-config</name>
 	<comment></comment>
 	<projects>
 	</projects>
