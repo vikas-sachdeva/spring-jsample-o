@@ -77,5 +77,6 @@
     <module>command-line-runner</module>
     <module>lazy-annotation</module>
     <module>print-all-loaded-beans</module>
+    <module>spring-data-mongodb-embedded-document</module>
   </modules>
 </project>
