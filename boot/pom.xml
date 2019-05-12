@@ -78,5 +78,6 @@
     <module>lazy-annotation</module>
     <module>print-all-loaded-beans</module>
     <module>spring-data-mongodb-embedded-document</module>
+    <module>hibernate-postgres-many-to-many</module>
   </modules>
 </project>
