@@ -80,5 +80,6 @@
     <module>spring-data-mongodb-embedded-document</module>
     <module>hibernate-postgres-many-to-many</module>
     <module>spring-factory-bean</module>
+	<module>spring-data-embedded-mongodb</module>
   </modules>
 </project>
