@@ -81,5 +81,6 @@
     <module>hibernate-postgres-many-to-many</module>
     <module>spring-factory-bean</module>
 	<module>spring-data-embedded-mongodb</module>
+	<module>webflux-embedded-mongodb</module>
   </modules>
 </project>

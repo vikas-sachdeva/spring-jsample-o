@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "f60da123-1bb9-4205-a704-822b62eba663",
+		"name": "apps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getApps",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getApps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getApps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addApp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"name\" : \"app-4\",\n\"running\" : true\n\n\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/addApp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addApp"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateApp",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"createdAt\": \"2019-08-09T06:43:41.267+0000\",\r\n        \"lastModifiedDate\": \"2019-08-09T06:43:41.267+0000\",\r\n        \"id\": \"5d4d161d3d10603e1cdaa187\",\r\n        \"name\": \"app-1\",\r\n        \"running\": true\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/updateApp/5d4d161d3d10603e1cdaa187",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateApp",
+						"5d4d161d3d10603e1cdaa187"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteApp",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteApp/5d4d16263d10603e1cdaa189",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteApp",
+						"5d4d16263d10603e1cdaa189"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
