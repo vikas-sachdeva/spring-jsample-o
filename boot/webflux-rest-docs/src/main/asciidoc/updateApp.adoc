@@ -1,0 +1,50 @@
+=== Update an application
+
+A 'PUT' request to update an existing application
+
+==== Path structure
+
+include::{snippets}/updateApp/path-parameters.adoc[]
+
+==== Request structure
+
+include::{snippets}/updateApp/request-fields.adoc[]
+
+include::{snippets}/updateApp/request-body.adoc[]
+
+==== HTTP request
+
+include::{snippets}/updateApp/http-request.adoc[]
+
+==== cURL request
+
+include::{snippets}/updateApp/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/updateApp/response-fields.adoc[]
+
+include::{snippets}/updateApp/response-body.adoc[]
+
+==== Example response
+include::{snippets}/updateApp/http-response.adoc[]
+
+==== Return & Error Codes
+
+|===
+| HTTP Status | Description
+
+| `200 Ok`
+| The request completed successfully.
+
+| `400 Bad request`
+| One or more required attributes are missing or not valid.
+
+| `400 Bad request`
+| One or more required attributes are missing or not valid.
+The requested resource did not exists.
+
+|===
+
+
+

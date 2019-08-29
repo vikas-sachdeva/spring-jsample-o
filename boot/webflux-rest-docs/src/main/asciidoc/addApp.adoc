@@ -1,0 +1,42 @@
+=== Add an application
+
+A 'POST' request to add a new application
+
+==== Request structure
+
+include::{snippets}/addApp/request-fields.adoc[]
+
+include::{snippets}/addApp/request-body.adoc[]
+
+==== HTTP request
+
+include::{snippets}/addApp/http-request.adoc[]
+
+==== cURL request
+
+include::{snippets}/addApp/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/addApp/response-fields.adoc[]
+
+include::{snippets}/addApp/response-body.adoc[]
+
+==== Example response
+include::{snippets}/addApp/http-response.adoc[]
+
+==== Return & Error Codes
+
+|===
+| HTTP Status | Description
+
+| `200 Ok`
+| The request completed successfully.
+
+| `400 Bad request`
+| One or more required attributes are missing or not valid.
+
+|===
+
+
+

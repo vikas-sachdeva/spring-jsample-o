@@ -82,5 +82,6 @@
     <module>spring-factory-bean</module>
 	<module>spring-data-embedded-mongodb</module>
 	<module>webflux-embedded-mongodb</module>
+	<module>webflux-rest-docs</module>
   </modules>
 </project>

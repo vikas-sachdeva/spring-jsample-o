@@ -1,0 +1,33 @@
+=== Get all applications
+
+A 'GET' request to get all existing applications.
+
+==== HTTP request
+
+include::{snippets}/getApps/http-request.adoc[]
+
+==== cURL request
+
+include::{snippets}/getApps/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/getApps/response-fields.adoc[]
+
+include::{snippets}/getApps/response-body.adoc[]
+
+==== Example response
+include::{snippets}/getApps/http-response.adoc[]
+
+==== Return & Error Codes
+
+|===
+| HTTP Status | Description
+
+| `200 Ok`
+| The request completed successfully.
+
+|===
+
+
+

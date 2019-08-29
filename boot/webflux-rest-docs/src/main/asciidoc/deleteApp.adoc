@@ -1,0 +1,32 @@
+=== Delete an application
+
+A 'DELETE' request to delete an existing application
+
+==== Path structure
+
+include::{snippets}/deleteApp/path-parameters.adoc[]
+
+==== HTTP request
+
+include::{snippets}/deleteApp/http-request.adoc[]
+
+==== cURL request
+
+include::{snippets}/deleteApp/curl-request.adoc[]
+
+==== Return & Error Codes
+
+|===
+| HTTP Status | Description
+
+| `200 Ok`
+| The request completed successfully.
+
+| `400 Bad request`
+| One or more required attributes are missing or not valid.
+The requested resource did not exists.
+
+|===
+
+
+

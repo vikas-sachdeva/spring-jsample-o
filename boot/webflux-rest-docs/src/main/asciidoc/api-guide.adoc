@@ -1,0 +1,49 @@
+= API Guide
+;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:includedir: src/main/asciidoc
+:snippets: ../../../target/generated-snippets
+
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update entirely an existing resource
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[resources]]
+= Resources
+
+[[Application]]
+== Application resource
+
+include::addApp.adoc[]
+
+include::getApps.adoc[]
+
+include::updateApp.adoc[]
+
+include::deleteApp.adoc[]
