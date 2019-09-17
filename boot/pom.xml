@@ -83,5 +83,6 @@
 	<module>spring-data-embedded-mongodb</module>
 	<module>webflux-embedded-mongodb</module>
 	<module>webflux-rest-docs</module>
+    <module>cloud</module>
   </modules>
 </project>
