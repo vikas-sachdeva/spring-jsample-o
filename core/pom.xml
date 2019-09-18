@@ -46,8 +46,8 @@
 
 	</dependencies>
 	<modules>
-		<module>singleton-scope-bean-different-id-xml-config</module>
-		<module>singleton-scope-bean-different-id-class-config</module>
 		<module>singleton-scope-bean-same-type-class-config</module>
+		<module>singleton-scope-duplicate-id</module>
+		<module>singleton-scope-same-type</module>
 	</modules>
 </project>

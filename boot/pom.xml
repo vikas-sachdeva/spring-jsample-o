@@ -57,32 +57,31 @@
 
 	</dependencies>
 	<modules>
-		<module>rest-json</module>
-		<module>rest-file-download</module>
+		<module>actuator-rest</module>
 		<module>aspect-method-entry-exit-logging</module>
-    <module>rest-controller-advice-exception-handling</module>
-    <module>mybatis-postgres</module>
-    <module>lombok-rest-mybatis</module>
-    <module>cors-support</module>
-    <module>actuator-rest</module>
-    <module>log4j2-integration</module>
-    <module>basic-console-app</module>
-    <module>unique-id-per-request</module>
-    <module>security</module>
-    <module>swagger2-rest-json</module>
-    <module>rest-file-upload</module>
-    <module>hibernate-postgres</module>
-    <module>spring-data-mongodb</module>
-    <module>qualifier-annotation</module>
-    <module>command-line-runner</module>
-    <module>lazy-annotation</module>
-    <module>print-all-loaded-beans</module>
-    <module>spring-data-mongodb-embedded-document</module>
-    <module>hibernate-postgres-many-to-many</module>
-    <module>spring-factory-bean</module>
-	<module>spring-data-embedded-mongodb</module>
-	<module>webflux-embedded-mongodb</module>
-	<module>webflux-rest-docs</module>
-    <module>cloud</module>
+		<module>basic-console-app</module>
+		<module>cloud</module>
+		<module>cors-support</module>
+		<module>hibernate-postgres</module>
+		<module>hibernate-postgres-many-to-many</module>
+		<module>lazy-annotation</module>
+		<module>log4j2-integration</module>
+		<module>lombok-rest-mybatis</module>
+		<module>mybatis-postgres</module>
+		<module>print-all-loaded-beans</module>
+		<module>qualifier-annotation</module>
+		<module>rest-controller-advice-exception-handling</module>
+		<module>rest-file-download</module>
+		<module>rest-file-upload</module>
+		<module>rest-json</module>
+		<module>security</module>
+		<module>spring-data-embedded-mongodb</module>
+		<module>spring-data-mongodb</module>
+		<module>spring-data-mongodb-nested-object</module>
+		<module>spring-factory-bean</module>
+		<module>swagger-rest-json</module>
+        <module>unique-id-per-request</module>
+		<module>webflux-embedded-mongodb</module>
+		<module>webflux-rest-docs</module>
   </modules>
 </project>
