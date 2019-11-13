@@ -83,5 +83,6 @@
         <module>unique-id-per-request</module>
 		<module>webflux-embedded-mongodb</module>
 		<module>webflux-rest-docs</module>
+    <module>webflux-junit-insights</module>
   </modules>
 </project>

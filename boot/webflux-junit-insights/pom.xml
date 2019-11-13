@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>spring.jsample</groupId>
+    <artifactId>boot</artifactId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>webflux-junit-insights</artifactId>
+  
+  <!-- Repository required for downloading junit-insights dependency. -->
+	<repositories>
+    	<repository>
+        	<id>jcenter</id>
+        	<url>https://jcenter.bintray.com/</url>
+    	</repository>
+	</repositories>
+  
+  <dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- junit-insights dependency. -->
+        <dependency>
+        	<groupId>de.adesso</groupId>
+        	<artifactId>junit-insights</artifactId>
+        	<version>1.1.0</version>
+    	</dependency>
+
+	</dependencies>
+	<build>
+	<plugins>
+		<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+            <systemPropertyVariables>
+            	<!-- Enable junit-insights -->
+                <de.adesso.junitinsights.enabled>true</de.adesso.junitinsights.enabled>
+                
+                <!-- Include all test cases for junit-insights -->
+                <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
+                
+                <!-- Configure output directory for junit-insights report -->
+                <de.adesso.junitinsights.reportpath>${project.build.directory}/reports/</de.adesso.junitinsights.reportpath>
+                
+            </systemPropertyVariables>
+        </configuration></plugin>
+	</plugins>
+  </build>
+</project>
